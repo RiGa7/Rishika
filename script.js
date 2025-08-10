@@ -75,24 +75,20 @@ document.addEventListener("DOMContentLoaded", function () {
             tagline.textContent = text;
         }
     }, 50);
+    
     const form = document.querySelector('form');
     const popup = document.getElementById('popup');
     const closePopup = document.querySelector('.close-popup');
 
     if (form) {
         form.addEventListener('submit', function (e) {
-            // Show popup immediately
             popup.style.display = 'block';
 
-            // Submit the form after 1 second (allows popup to be visible)
             setTimeout(() => {
-                // Create a temporary form submission
                 const tempForm = document.createElement('form');
                 tempForm.action = form.action;
                 tempForm.method = 'POST';
                 tempForm.style.display = 'none';
-
-                // Copy all form inputs
                 Array.from(form.elements).forEach(element => {
                     if (element.name) {
                         const input = document.createElement('input');
@@ -105,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 document.body.appendChild(tempForm);
                 tempForm.submit();
-            }, 1000);
+            }, 3000);
             e.preventDefault();
         });
     }
@@ -121,3 +117,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
