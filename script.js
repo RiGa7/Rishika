@@ -76,21 +76,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }, 50);
 
-    const form = document.querySelector('form');
-  
-    if (form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        showToast();
-      });
-    }
-  });
-  
-  function showToast() {
-    const toast = document.getElementById('popup');
-    toast.style.display = 'block';
+const form = document.querySelector('form');
+const popup = document.getElementById('popup');
+
+if (form) {
+  form.addEventListener('submit', function(e) {
+    popup.style.display = 'block';
     
     setTimeout(() => {
-      toast.style.display = 'none';
-    }, 3000);
+      form.submit();
+    }, 1000);
+    e.preventDefault();
+  });
+}3000);
   }
+
